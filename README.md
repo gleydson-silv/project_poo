@@ -1,42 +1,39 @@
-🚗 Sistema de Locadora de Veículos — Java (POO)
-📌 Descrição do Projeto
+# 🚗 Sistema de Locadora de Veículos — Java (POO)
 
-Este projeto consiste em um sistema de locadora de veículos desenvolvido em Java, com foco na aplicação prática dos princípios da Programação Orientada a Objetos (POO).
+## 📌 Descrição do Projeto
 
-O sistema funciona via menu interativo no terminal, permitindo o cadastro de clientes e veículos, além do controle de aluguel e devolução.
-Atualmente, os dados são armazenados em memória, utilizando coleções (ArrayList), com estrutura preparada para futura integração com banco de dados.
+Este projeto consiste em um **sistema de locadora de veículos desenvolvido em Java**, com foco na aplicação prática dos **conceitos de Programação Orientada a Objetos (POO)**.
 
-🎯 Objetivos do Projeto
+O sistema funciona por meio de um **menu interativo no terminal**, permitindo o cadastro de clientes e veículos, além do controle de aluguel e devolução.  
+Atualmente, os dados são armazenados **em memória**, utilizando coleções (`ArrayList`), sem integração com banco de dados.
 
-Consolidar os conceitos fundamentais de POO em Java
+---
 
-Aplicar boas práticas de organização e responsabilidade das classes
+## 🎯 Objetivos do Projeto
 
-Simular um sistema real de locadora
+- Consolidar os conceitos fundamentais de Programação Orientada a Objetos em Java
+- Aplicar boas práticas de organização e responsabilidade das classes
+- Simular um sistema real de locadora de veículos
+- Servir como base para futuras evoluções (persistência, banco de dados, API, etc.)
 
-Servir como base para evolução futura (persistência em banco, API, etc.)
+---
 
-🧠 Conceitos de Programação Utilizados
+## 🧠 Conceitos de Programação Utilizados
 
-✅ Encapsulamento
+- Encapsulamento
+- Herança
+- Polimorfismo
+- Classes abstratas
+- Interfaces
+- Sobrescrita de métodos (`@Override`)
+- Separação de responsabilidades
+- Coleções (`ArrayList`)
+- Menu interativo com loop (`do-while` e `switch-case`)
 
-✅ Herança
+---
 
-✅ Polimorfismo
+## 🏗️ Estrutura do Projeto
 
-✅ Classes abstratas
-
-✅ Interfaces
-
-✅ Sobrescrita de métodos (@Override)
-
-✅ Separação por camadas (model, service, main)
-
-✅ Uso de coleções (ArrayList)
-
-✅ Menu em loop (do-while + switch)
-
-🏗️ Estrutura do Projeto
 - src/
 - ├── main/
 - │   └── Main.java
@@ -52,41 +49,32 @@ Servir como base para evolução futura (persistência em banco, API, etc.)
 - ├── service/
 - │   └── Locadora.java
 
-📂 Descrição das Camadas
+---
 
-model
+## 📂 Organização das Camadas
 
-Contém as entidades do sistema
+### 🔹 model
+Camada responsável por representar as entidades do sistema e o domínio da aplicação, como clientes e veículos.
 
-Representa o domínio da aplicação (Cliente, Veículo, etc.)
+### 🔹 service
+Camada responsável pela lógica de negócio e regras do sistema, como cadastro, aluguel e devolução de veículos.
 
-service
+### 🔹 main
+Camada responsável pela interação com o usuário, contendo o menu principal e o fluxo da aplicação.
 
-Contém a lógica de negócio
+---
 
-Gerencia clientes, veículos e regras de aluguel
+## ⚙️ Funcionalidades Implementadas
 
-main
+- Cadastro de veículos (Carro, Moto e Caminhão)
+- Cadastro de clientes
+- Listagem de veículos disponíveis
+- Aluguel de veículos
+- Devolução de veículos
+- Busca de cliente por CPF
+- Busca de veículo por placa
 
-Responsável pela interação com o usuário
-
-Contém o menu principal do sistema
-
-⚙️ Funcionalidades Implementadas
-
-📌 Cadastro de veículos (Carro, Moto e Caminhão)
-
-📌 Cadastro de clientes
-
-📌 Listagem de veículos disponíveis
-
-📌 Aluguel de veículo por cliente
-
-📌 Devolução de veículo
-
-📌 Busca de cliente por CPF
-
-📌 Busca de veículo por placa
+---
 
 🖥️ Execução do Projeto
 🔹 Pré-requisitos
