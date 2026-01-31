@@ -37,20 +37,20 @@ Servir como base para evolução futura (persistência em banco, API, etc.)
 ✅ Menu em loop (do-while + switch)
 
 🏗️ Estrutura do Projeto
-src/
-├── main/
-│   └── Main.java
-│
-├── model/
-│   ├── Veiculo.java
-│   ├── Carro.java
-│   ├── Moto.java
-│   ├── Caminhao.java
-│   ├── Cliente.java
-│   ├── Manutencao.java
-│
-├── service/
-│   └── Locadora.java
+- src/
+- ├── main/
+- │   └── Main.java
+- │
+- ├── model/
+- │   ├── Veiculo.java
+- │   ├── Carro.java
+- │   ├── Moto.java
+- │   ├── Caminhao.java
+- │   ├── Cliente.java
+- │   ├── Manutencao.java
+- │
+- ├── service/
+- │   └── Locadora.java
 
 📂 Descrição das Camadas
 
@@ -98,8 +98,7 @@ IntelliJ IDEA (ou outra IDE Java)
 🔹 Como executar
 
 Clone o repositório:
-
-git clone https://github.com/seu-usuario/locadora-java-poo.git
+https://github.com/gleydson-silv/project_poo.git
 
 
 Abra o projeto no IntelliJ
