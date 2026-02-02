@@ -1,91 +1,43 @@
 package service;
+
+import dao.ClienteDAO;
+import dao.VeiculoDAO;
 import model.Cliente;
 import model.Veiculo;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Locadora {
 
-    private ArrayList<Veiculo> frota;
-    private ArrayList<Cliente> clientes;
-
-    public Locadora() {
-        this.frota = new ArrayList<>();
-        this.clientes = new ArrayList<>();
-    }
-
-    public ArrayList<Veiculo> getFrota() {
-        return frota;
-    }
-
-    public ArrayList<Cliente> getClientes() {
-        return clientes;
-    }
-
-    public void cadastrarVeiculo(Veiculo veiculo) {
-        frota.add(veiculo);
-    }
-
-    public void listarVeiculosDisponiveis() {
-        for (Veiculo v : frota) {
-            if (v.isDisponivel()) {
-                v.exibir_dados();
-                System.out.println("-------------------");
-            }
-        }
-    }
-
+    private ClienteDAO clienteDAO = new ClienteDAO();
+    private VeiculoDAO veiculoDAO = new VeiculoDAO();
 
     public void cadastrarCliente(Cliente cliente) {
-            System.out.print("Nome: ");
-            Scanner sc = new Scanner(System.in);
-            String nome = sc.nextLine();
+        clienteDAO.salvar(cliente);
+    }
 
-            System.out.print("CPF: ");
-            String cpf = sc.nextLine();
+    public Cliente buscarClienteCpf(String cpf) {
+        return clienteDAO.buscarPorCpf(cpf);
+    }
 
-            Cliente c = new Cliente(nome, cpf);
+    public void cadastrarVeiculo(Veiculo v) {
+        if (v.getTipo() == null) {
+            throw new IllegalArgumentException("Tipo do veículo é obrigatório");
+        }
+        veiculoDAO.salvar(v);
+    }
 
-            System.out.println("Cliente cadastrado!");
-
-            clientes.add(c);
+    public Veiculo buscarVeiculoPorPlaca(String placa) {
+        return veiculoDAO.buscarPorPlaca(placa);
     }
 
     public void listarClientes() {
-        for (Cliente c : clientes) {
-            System.out.println(c);
+        for (Cliente c : clienteDAO.listarTodos()) {
+            System.out.println(c.getNome() + " - " + c.getCpf());
         }
     }
 
-    public void buscarClienteCpf() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Digite o CPF para realizar a busca: ");
-        String cpf = sc.nextLine();
-
-        for (Cliente c : clientes) {
-            if (c.getCpf().equals(cpf)) {
-                System.out.println(c);
-                return;
-            }
+    public void listarVeiculosDisponiveis() {
+        for (Veiculo v : veiculoDAO.listarDisponiveis()) {
+            System.out.println(v);
         }
-
-        System.out.println("Cliente não encontrado.");
     }
-
-    public void buscarPorPlaca() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite a plcaca para realizar a busca: ");
-        String placa = sc.nextLine();
-
-        for (Veiculo v : frota) {
-            if(v.getPlaca().equals(placa)) {
-                System.out.println(v);
-                return;
-            }
-        }
-
-        System.out.println("Placa não encontrada! ");
-    }
-
 }

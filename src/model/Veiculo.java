@@ -8,22 +8,32 @@ public abstract class Veiculo {
     private int ano;
     private double valorDiaria;
     private boolean disponivel;
+    private TipoVeiculo tipo;
 
-    public Veiculo(String placa, String modelo, int ano, double valorDiaria) {
+
+    protected Veiculo(String placa, String modelo, int ano, double valorDiaria,TipoVeiculo tipo) {
+        if(tipo == null) {
+            throw new IllegalArgumentException("Tipo do veículo é obrigatório");
+        }
+
         this.placa = placa;
         this.modelo = modelo;
         this.ano = ano;
         this.valorDiaria = valorDiaria;
         this.disponivel = true;
+        this.tipo = tipo;
     }
 
     public String getPlaca() {
         return placa;
     }
+    public String getModelo() {return modelo;}
+    public int getAno() {return ano;}
+    public double getValorDiaria() {return valorDiaria;}
 
     @Override
     public String toString() {
-        return "Nome: " + modelo + " | CPF: " + placa;
+        return "Modelo: " + modelo + " | Placa: " + placa + "| Tipo: " + tipo;
     }
 
     public void alugar() {
@@ -38,9 +48,7 @@ public abstract class Veiculo {
         this.disponivel = true;
     }
 
-    public double calcularValorAluguel(int dias) {
-        return valorDiaria * dias;
-    }
+    public abstract double calcularValorAluguel(int dias);
 
     public void exibir_dados() {
         System.out.println("Placa: " + placa);
@@ -53,5 +61,10 @@ public abstract class Veiculo {
     public boolean isDisponivel() {
         return disponivel;
     }
+
+    public TipoVeiculo getTipo() {
+        return tipo;
+    }
+
 
 }
